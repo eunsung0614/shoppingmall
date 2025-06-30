@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/index.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>키티몰</title>
+  <link rel="stylesheet" href="./키티몰_files/style.css">
+  <style>
+    /* 햄버거 메뉴 영역 */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 260px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+      transition: right 0.3s ease;
+      z-index: 1001;
+      padding: 20px;
+    }
+
+    .side-menu.active {
+      right: 0;
+    }
+
+    .side-menu .close-btn {
+      background: none;
+      border: none;
+      font-size: 28px;
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      cursor: pointer;
+    }
+
+    .side-menu ul {
+      list-style: none;
+      padding: 60px 0 0 0;
+    }
+
+    .side-menu ul li {
+      margin: 20px 0;
+    }
+
+    .side-menu ul li a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      color: #d81b60;
+      font-weight: bold;
+    }
+
+    /* 배경 어두운 오버레이 */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* 햄버거 버튼 스타일 */
+    .hamburger {
+      display: inline-block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2.5px;
+      margin: 4px 0;
+      background-color: #ffffff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .logout-btn {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  color: #d81b60;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ddd;
+}
+
+body.dark-mode header {
+  background-color: #880e4f;
+}
+
+/* 버튼, 링크, 카드 등도 필요시 다크모드 색상 지정 */
+
+
+  </style>
+</head>
+<body>
+  <header class="simple-header">
+    <div class="header-left">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/index.html" class="logo">키티몰</a>
+    </div>
+    <nav class="header-right">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/login.html">로그인</a>
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/signup.html">회원가입</a>
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/cart.html">장바구니</a>
+      <button id="hamburger-btn" class="hamburger" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="product-list" class="product-list"><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=1" class="product-link">
+        <img src="./키티몰_files/A1.webp" alt="[1+1할인/만족도100%] 반팔 티셔츠">
+        <h2>[1+1할인/만족도100%] 반팔 티셔츠</h2>
+      </a>
+      <p>₩11,500</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=2" class="product-link">
+        <img src="./키티몰_files/A2.webp" alt="[❄️여름생지❄️/이염 X] 투웨이 밴딩 팬츠">
+        <h2>[❄️여름생지❄️/이염 X] 투웨이 밴딩 팬츠</h2>
+      </a>
+      <p>₩22,700</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=3" class="product-link">
+        <img src="./키티몰_files/A3.webp" alt="푸드체크체믈렛 (반팔 반소매 티셔츠)">
+        <h2>푸드체크체믈렛 (반팔 반소매 티셔츠)</h2>
+      </a>
+      <p>₩15,710</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=4" class="product-link">
+        <img src="./키티몰_files/A4.webp" alt="당일출고🚀[잘록핏🖤] 팬츠">
+        <h2>당일출고🚀[잘록핏🖤] 팬츠</h2>
+      </a>
+      <p>₩26,780</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=5" class="product-link">
+        <img src="./키티몰_files/A5.webp" alt="카펜더 카고 빈티지 버뮤다 팬츠 반바지">
+        <h2>카펜더 카고 빈티지 버뮤다 팬츠 반바지</h2>
+      </a>
+      <p>₩29,500</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=6" class="product-link">
+        <img src="./키티몰_files/A6.webp" alt="(UNISEX)USA 카모 밀리터리 티셔츠">
+        <h2>(UNISEX)USA 카모 밀리터리 티셔츠</h2>
+      </a>
+      <p>₩25,900</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=7" class="product-link">
+        <img src="./키티몰_files/A7.webp" alt="[핏보장/빈티지!] 찢청 데님 와이드 팬츠">
+        <h2>[핏보장/빈티지!] 찢청 데님 와이드 팬츠</h2>
+      </a>
+      <p>₩22,920</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=8" class="product-link">
+        <img src="./키티몰_files/A8.webp" alt="[4XL]박시핏 피그먼트 반팔 티셔츠">
+        <h2>[4XL]박시핏 피그먼트 반팔 티셔츠</h2>
+      </a>
+      <p>₩33,380</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=9" class="product-link">
+        <img src="./키티몰_files/A9.webp" alt="2XL ~ 4XL 빅사이즈 브이넥 빈티지 반팔티">
+        <h2>2XL ~ 4XL 빅사이즈 브이넥 빈티지 반팔티</h2>
+      </a>
+      <p>₩29,750</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=10" class="product-link">
+        <img src="./키티몰_files/A10.webp" alt="[힙무드🖤/밑단스트링!] 빈티지 팬츠">
+        <h2>[힙무드🖤/밑단스트링!] 빈티지 팬츠</h2>
+      </a>
+      <p>₩15,900</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=11" class="product-link">
+        <img src="./키티몰_files/A11.webp" alt="[진짜 말라보임] 빈티지 반팔 데님 청자켓">
+        <h2>[진짜 말라보임] 빈티지 반팔 데님 청자켓</h2>
+      </a>
+      <p>₩38,980</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=12" class="product-link">
+        <img src="./키티몰_files/A12.webp" alt="[끈포함/레이스🖤] 스트랩 리본 팬츠">
+        <h2>[끈포함/레이스🖤] 스트랩 리본 팬츠</h2>
+      </a>
+      <p>₩22,900</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=13" class="product-link">
+        <img src="./키티몰_files/A13.webp" alt="[❤️최저가❤️][빅사이즈] 반팔 셔츠">
+        <h2>[❤️최저가❤️][빅사이즈] 반팔 셔츠</h2>
+      </a>
+      <p>₩34,220</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=14" class="product-link">
+        <img src="./키티몰_files/A14.webp" alt="CHMPS NEKO CAMO 반팔 티셔츠">
+        <h2>CHMPS NEKO CAMO 반팔 티셔츠</h2>
+      </a>
+      <p>₩25,020</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=15" class="product-link">
+        <img src="./키티몰_files/A15.webp" alt="[하트힙🖤/골반보정] 하트 자수 롱와이드">
+        <h2>[하트힙🖤/골반보정] 하트 자수 롱와이드</h2>
+      </a>
+      <p>₩43,900</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=16" class="product-link">
+        <img src="./키티몰_files/A16.webp" alt="빅사이즈 오버핏 럭비 농구 매쉬 반팔티">
+        <h2>빅사이즈 오버핏 럭비 농구 매쉬 반팔티</h2>
+      </a>
+      <p>₩18,900</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=17" class="product-link">
+        <img src="./키티몰_files/A17.webp" alt="aa초특가!!여름 cool 원단! 레그 롱팬츠">
+        <h2>aa초특가!!여름 cool 원단! 레그 롱팬츠</h2>
+      </a>
+      <p>₩16,000</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=18" class="product-link">
+        <img src="./키티몰_files/A18.webp" alt="[힙무드] 카고 나일론 조거 투웨이팬츠">
+        <h2>[힙무드] 카고 나일론 조거 투웨이팬츠</h2>
+      </a>
+      <p>₩20,500</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=19" class="product-link">
+        <img src="./키티몰_files/A19.webp" alt="[슬림핏/교복핏] 빈티지 로고 반팔티">
+        <h2>[슬림핏/교복핏] 빈티지 로고 반팔티</h2>
+      </a>
+      <p>₩19,800</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=20" class="product-link">
+        <img src="./키티몰_files/A20.webp" alt="[사계절/당일출고] 와이드 카고 조거팬츠">
+        <h2>[사계절/당일출고] 와이드 카고 조거팬츠</h2>
+      </a>
+      <p>₩38,200</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=21" class="product-link">
+        <img src="./키티몰_files/A21.webp" alt="[레이어드세트/넉넉아방핏🖤] 블라우스">
+        <h2>[레이어드세트/넉넉아방핏🖤] 블라우스</h2>
+      </a>
+      <p>₩21,500</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=22" class="product-link">
+        <img src="./키티몰_files/A22.webp" alt="(인기특가❣️) [잘록핏🖤] 반팔 티셔츠">
+        <h2>(인기특가❣️) [잘록핏🖤] 반팔 티셔츠</h2>
+      </a>
+      <p>₩9,900</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=23" class="product-link">
+        <img src="./키티몰_files/A23.webp" alt="에센셜 쇼츠 팬츠 4color">
+        <h2>에센셜 쇼츠 팬츠 4color</h2>
+      </a>
+      <p>₩15,980</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=24" class="product-link">
+        <img src="./키티몰_files/A24.webp" alt="옐로우 추가!!🖤 스트릿 키티 후드집업">
+        <h2>옐로우 추가!!🖤 스트릿 키티 후드집업</h2>
+      </a>
+      <p>₩39,800</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=25" class="product-link">
+        <img src="./키티몰_files/A25.webp" alt="🇰🇷힙걸 - 빈티지 카모 벌룬핏 와이드 롱팬츠">
+        <h2>🇰🇷힙걸 - 빈티지 카모 벌룬핏 와이드 롱팬츠</h2>
+      </a>
+      <p>₩63,800</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=26" class="product-link">
+        <img src="./키티몰_files/A26.webp" alt="여름까지쭉~ [MADE💗/힙그자체] 롱팬츠">
+        <h2>여름까지쭉~ [MADE💗/힙그자체] 롱팬츠</h2>
+      </a>
+      <p>₩22,060</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=27" class="product-link">
+        <img src="./키티몰_files/A27.webp" alt="[HIP❤︎스트릿]브이넥 밀리터리 카모반팔티">
+        <h2>[HIP❤︎스트릿]브이넥 밀리터리 카모반팔티</h2>
+      </a>
+      <p>₩19,900</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=28" class="product-link">
+        <img src="./키티몰_files/A28.webp" alt="[UNISEX/소장추천!]힙 더 카모 밀리터리 팬츠">
+        <h2>[UNISEX/소장추천!]힙 더 카모 밀리터리 팬츠</h2>
+      </a>
+      <p>₩39,800</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=29" class="product-link">
+        <img src="./키티몰_files/A29.webp" alt="*묶음할인[UNISEX/힙스터] 트레이닝 팬츠">
+        <h2>*묶음할인[UNISEX/힙스터] 트레이닝 팬츠</h2>
+      </a>
+      <p>₩41,800</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div><div class="product-card">
+      <a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/product-detail.html?id=30" class="product-link">
+        <img src="./키티몰_files/A30.webp" alt="[~3XL💖] 오버핏 루즈핏 헬로키티">
+        <h2>[~3XL💖] 오버핏 루즈핏 헬로키티</h2>
+      </a>
+      <p>₩30,500</p>
+      <button class="cart-button">🛒 장바구니에 담기</button>
+    </div></section>
+    <script src="./키티몰_files/main.js"></script>
+    <script src="./키티몰_files/products.js"></script>
+    <script src="./키티몰_files/globals.js"></script>
+    <script src="./키티몰_files/home.js"></script>
+  </main>
+
+  <!-- 햄버거 슬라이드 메뉴 -->
+  <div id="side-menu" class="side-menu">
+  <button id="close-menu" class="close-btn">×</button>
+  <ul>
+    <li><a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/mypage.html">마이페이지</a></li>
+    <li><a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/orders.html">주문내역</a></li>
+    <li><a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/faq.html">FAQ</a></li>
+    <li><a href="file:///C:/Users/wjddn/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/shoppingmall/settings.html">환경설정</a></li>
+  </ul>
+  <!-- ✅ 좌측 하단 고정 로그아웃 버튼 -->
+  <button id="logout-btn" class="logout-btn">로그아웃</button>
+</div>
+
+  <!-- 배경 어두움 -->
+  <div id="overlay" class="overlay"></div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- 햄버거 메뉴 작동 스크립트 -->
+  <script>
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sideMenu = document.getElementById('side-menu');
+    const closeMenu = document.getElementById('close-menu');
+    const overlay = document.getElementById('overlay');
+
+    hamburgerBtn.addEventListener('click', () => {
+      sideMenu.classList.add('active');
+      overlay.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+      sideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => {
+  // 예: 로컬 스토리지 초기화 또는 토큰 삭제
+  alert('로그아웃 되었습니다!');
+  // 로그인 페이지로 이동
+  window.location.href = 'login.html';
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const darkModeOn = localStorage.getItem('darkMode') === 'true';
+  if (darkModeOn) {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode');
+  }
+});
+  </script>
+
+
+</body></html>
